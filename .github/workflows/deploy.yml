@@ -36,16 +36,16 @@ jobs:
         run: jupyter-book --version
 
       - name: Build the book
-        run: jupyter-book build docs
+        run: jupyter-book build mynewbook
 
       - name: Debug - Check if HTML build exists
-        run: ls -la docs/_build/html || echo "HTML build directory missing!"
+        run: ls -la mynewbook/_build/html || echo "HTML build directory missing!"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
           name: "github-pages"
-          path: "docs/_build/html"
+          path: "mynewbook/_build/html"
 
       - name: Debug - List uploaded artifacts
         run: ls -la ${{ runner.temp }}/pages-artifact/ || echo "No artifacts uploaded!"
